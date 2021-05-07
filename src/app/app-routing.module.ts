@@ -7,7 +7,7 @@ import {RestuarantInfoComponent} from './components/restaurants/restuarant-info/
 import {NoSelectedRestaurantComponent} from './components/restaurants/no-selected-restaurant/no-selected-restaurant.component';
 
 const routes: Routes = [
-  {path: '', component: MainPageComponent, pathMatch: 'full'},
+  {path: '', component: MainPageComponent},
   {path: 'restaurants', component: RestaurantsComponent, children: [
       {path: '', component: NoSelectedRestaurantComponent, pathMatch: 'full'},
       {path: ':name', component: RestuarantInfoComponent},
