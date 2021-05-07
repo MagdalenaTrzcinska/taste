@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;900&display=swap'); //roboto
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap'); //lato
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+
+$primary-color: rgba(0, 0, 0, 1);
+$secondary-color: rgb(206, 171, 125);
+
+
+$font-title: 'Great Vibes', cursive;
+$font: 'Roboto', sans-serif;
+//$font: 'Lato', sans-serif;
+
+
+
+.btn {
+  background-color: $secondary-color;
+  color: white;
+  border-radius: 0;
+  font-family: $font;
+  font-weight: 300;
+
+  &:hover {
+    background-color: darken($secondary-color, 10%);
+    color: white;
+  }
+}
+
+
+.logo {
+  color: white;
+  margin: 0;
+  padding: 14px;
+  font-family: $font;
+}
+
+
+
+
+.form-control:focus {
+  border-color: $secondary-color;
+  box-shadow: inset 0 1px 1px rgba(187, 153, 107, 0.075), 0 0 8px rgba(187, 153, 107, 0.6);
+}

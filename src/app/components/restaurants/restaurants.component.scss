@@ -1,0 +1,26 @@
+@import "src/app/styles/variables";
+
+
+
+
+a {
+  padding: 10px;
+  font-size: 17px;
+  font-weight: 300;
+  color: $primary-color;
+
+  h2 {
+    margin: 0;
+  }
+}
+
+
+a.active {
+  color: $secondary-color !important;
+  font-weight: bold;
+}
+
+a:hover {
+  color: $secondary-color;
+}
+
