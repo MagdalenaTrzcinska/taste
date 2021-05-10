@@ -1,22 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;900&display=swap'); //roboto
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap'); //lato
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
-
-$primary-color: rgba(0, 0, 0, 1);
+$primary-color: rgb(0, 0, 0);
 $secondary-color: rgb(206, 171, 125);
-
 
 $font-title: 'Great Vibes', cursive;
 $font: 'Roboto', sans-serif;
-//$font: 'Lato', sans-serif;
-
-
 
 .btn {
   background-color: $secondary-color;
   color: white;
-  border-radius: 0;
   font-family: $font;
   font-weight: 300;
 
@@ -26,13 +19,33 @@ $font: 'Roboto', sans-serif;
   }
 }
 
-
-.logo {
-  color: white;
-  margin: 0;
-  padding: 14px;
-  font-family: $font;
+.btn-small {
+  font-size: 11px;
+  padding: 2px 5px;
 }
+
+.btn-radius {
+  border-radius: 5px;
+}
+
+span.name {
+  color: $secondary-color;
+  font-family: $font-title;
+  font-weight: normal;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

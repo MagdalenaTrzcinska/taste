@@ -15,4 +15,7 @@ export class MenuItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onAddItem(amount: string): void {
+    alert(amount);
+  }
 }

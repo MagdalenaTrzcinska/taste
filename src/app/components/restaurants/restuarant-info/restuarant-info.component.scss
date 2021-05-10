@@ -1,37 +1,29 @@
 @import "src/app/styles/variables";
 
-h2 {
-  margin-top: 65px;
-  font-weight: 500;
-  font-size: 40px;
+.name {
+  font-size: 70px;
+}
 
-  &:before {
-    content: "Restaurant";
+h1 {
+  position: absolute;
+  bottom: 5px;
+  left: 30px;
+}
+
+
+.offer {
+  padding: 10px;
+
+  i {
+    padding-right: 10px;
     color: $secondary-color;
-    font-family: $font-title;
-    position: absolute;
-    z-index: -1;
-    font-size: 80px;
-    top: 5px;
-    font-weight: normal;
   }
 }
-
-
-span {
-  padding: 10px;
-}
-
-i {
-  padding-right: 10px;
-  color: $secondary-color;
-}
-
-
 
 .card-header {
   background-color: lighten($secondary-color, 10%);
   color: white;
+
   span {
     padding: 0;
   }

@@ -1,5 +1,5 @@
 import {Component, DoCheck, OnInit} from '@angular/core';
-import {RestuarantsService} from '../../restuarants.service';
+import {RestuarantsService} from '../../services/restuarants.service';
 import {Restaurant} from '../../restaurant.model';
 import {Subscription} from 'rxjs';
 

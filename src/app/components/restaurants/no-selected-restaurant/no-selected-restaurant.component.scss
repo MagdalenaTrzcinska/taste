@@ -1,23 +1,13 @@
 @import "src/app/styles/variables";
 
-section {
-  height: 50vh;
-  margin-top: 20vh;
+span {
+  font-size: 100px;
 }
 
-h2 {
-  margin-top: 65px;
-  font-weight: 500;
-  font-size: 50px;
-
-  &:before {
-    content: "No selected";
-    color: $secondary-color;
-    font-family: $font-title;
-    position: absolute;
-    z-index: -1;
-    font-size: 120px;
-    top: -44px;
-    font-weight: normal;
-  }
+h1 {
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
 }
+
+

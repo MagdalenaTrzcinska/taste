@@ -1,0 +1,27 @@
+@import "src/app/styles/variables";
+
+article {
+  background-color: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(2px);
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  top: 0;
+
+  .model {
+    position: relative;
+    top:50%;
+    transform: translateY(-50%);
+
+    .alert {
+      font-size: 13px;
+      position: absolute;
+      width: 100%;
+      top: -80px;
+    }
+
+    .correctPass {
+      font-size: 10px;
+    }
+  }
+}

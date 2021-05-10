@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {RestuarantsService} from '../../restuarants.service';
-import {MatSnackBar} from '@angular/material/snack-bar';
+import {RestuarantsService} from '../../services/restuarants.service';
 
 @Component({
   selector: 'app-main-page',
@@ -9,32 +8,19 @@ import {MatSnackBar} from '@angular/material/snack-bar';
   styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent implements OnInit {
-  login = false;
-  correctPassword = 'admin1234';
-  error = false;
 
-  constructor(private route: Router, private service: RestuarantsService, private snackBar: MatSnackBar) {
-
+  constructor(private route: Router, public service: RestuarantsService) {
   }
 
   ngOnInit(): void {
   }
 
-  changeLogin(): void {
-    this.login = !this.login;
-    this.error = false;
-  }
-
-  onLogin(password: string): void {
-    if (password === this.correctPassword) {
-      alert('good');
-    } else {
-      this.error = true;
-    }
+  onOpenLogin(): void {
+    this.service.openingLogin();
   }
 
   onSearch(city): void {
-    this.service.onSearch(city);
+    this.service.searchHotels(city);
     this.route.navigate(['restaurants']);
   }
 }

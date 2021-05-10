@@ -1,30 +1,34 @@
 <div class="row">
   <div class="col-9">
-    <h2>{{ restaurant.name | nameChange }}</h2>
+    <div class="position-relative">
+      <span class="name">Restaurant</span>
+      <h1>{{ restaurant.name | nameChange }}</h1>
+    </div>
   </div>
   <div class="col-9">
-    <span>
+    <span class="offer">
       <i class="far fa-clock"></i>{{ restaurant.delivery.time }} m
     </span>
-    <span>
+    <span class="offer">
       <i class="fas fa-truck"></i>{{ restaurant.delivery.amount }}
     </span>
-    <span>
+    <span class="offer">
       <i class="fas fa-dollar-sign"></i>MIN. {{ getMinimumCost() }}
     </span>
   </div>
 </div>
 <hr/>
+
 <div class="row">
   <div class="col-12 col-lg-8">
-    <div class="row justify-content-center justify-content-xl-start">
-      <div class="col-12 col-md-9 col-xl-4 p-2" *ngFor="let item of restaurant.menu">
-        <app-menu-item [item]="item"></app-menu-item>
-      </div>
+  <div class="row justify-content-center justify-content-lg-start">
+    <div class="col-12 col-md-9 col-lg-6 col-xl-4 p-2" *ngFor="let item of restaurant.menu">
+      <app-menu-item [item]="item"></app-menu-item>
     </div>
   </div>
+</div>
 
-  <div class="col-12 col-lg-4" style="height: 100vh; overflow:scroll;">
+  <div class="col-12 col-lg-4">
     <div class="opinion card" *ngIf="restaurant.opinions; else noOpinions">
       <div class="card-header">
         <div><span>{{ calcStar() }}</span>/5 stars</div>
@@ -41,5 +45,4 @@
       This restaurant does not have any reviews.
     </div>
   </ng-template>
-
 </div>

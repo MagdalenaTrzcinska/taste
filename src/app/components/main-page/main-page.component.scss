@@ -1,14 +1,14 @@
 @import "src/app/styles/variables";
 
-
 header {
   position: relative;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../../assets/main-background.jpg") center left 10%;
   background-size: cover;
   height: 100vh;
 
-  h2 {
-    height: 50px;
+  .logo {
+    color: white;
+    margin: 0;
     padding: 0;
   }
 
@@ -23,42 +23,4 @@ header {
       color: $secondary-color;
     }
   }
-}
-
-
-.btn-panel {
-  font-size: 11px;
-  padding: 2px 5px;
-}
-
-.btn {
-  border-radius: 5px;
-}
-
-
-article {
-  background-color: rgba(0, 0, 0, 0.9);
-  backdrop-filter: blur(2px);
-
-  height: 100%;
-  position: absolute;
-  width: 100%;
-  top: 0;
-
-  .model {
-    position: relative;
-    top:50%;
-    transform: translateY(-50%);
-
-    span {
-      font-size: 10px;
-    }
-  }
-}
-
-.alert {
-  font-size: 13px;
-  position: absolute;
-  width: 100%;
-  top: -80px;
 }

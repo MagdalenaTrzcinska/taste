@@ -1,0 +1,24 @@
+<article>
+  <div class="model">
+    <div class="modal-dialog">
+      <div class="alert alert-danger" role="alert" *ngIf="service.error">
+        Incorrect the password
+      </div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">You must be an admin.</h5>
+          <span class="correctPass">{{correctPassword}}</span>
+        </div>
+        <div class="modal-body">
+          <label>
+            <input class="form-control form-control-sm" type="password" placeholder="password" #password>
+          </label>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-small btn-radius" (click)="changeLogin()">Close</button>
+          <button type="button" class="btn btn-small btn-radius" (click)="onLogin(password.value)">Login</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>

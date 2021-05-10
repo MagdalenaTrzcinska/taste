@@ -1,7 +1,7 @@
 import {Injectable, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
-import {Restaurant} from './restaurant.model';
+import {Restaurant} from '../restaurant.model';
 import {Subject} from 'rxjs';
 
 @Injectable({
@@ -11,11 +11,14 @@ export class RestuarantsService {
   restaurants: Restaurant[];
   filteredRestaurants: Restaurant[] = [];
 
+  login = false;
+  error = false;
+
   constructor(private http: HttpClient) {
     this.getting();
   }
 
-  onSearch(city: string): void {
+  searchHotels(city: string): void {
     for (const restaurant of this.restaurants) {
       if (restaurant.location === city) {
         this.filteredRestaurants.push(restaurant);
@@ -40,5 +43,10 @@ export class RestuarantsService {
         this.restaurants = posts;
       });
 
+  }
+
+  openingLogin(): void {
+    this.login = !this.login;
+    this.error = false;
   }
 }
