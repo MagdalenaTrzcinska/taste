@@ -4,10 +4,10 @@
     <h5 class="card-title">{{dish.name}}</h5>
     <p class="card-text" style="height: 80px">{{dish.description}}</p>
 
-    <div>
-      {{dish.price}} &euro;
-      <button class="btn float-right" (click)="onAddDish(amount.value)">Add</button>
-      <input type="number" value="1" min="1" class="float-right mr-2 form-control" #amount>
+    <div class="row">
+      <div class="col-3 align-self-end">{{dish.price}} &euro;</div>
+      <input type="number" value="1" min="1" class="col-2 mr-2 ml-auto form-control" #amount>
+      <button class="btn" (click)="onAddDish(amount.value)">Add</button>
     </div>
   </div>
 </div>
