@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Menu} from '../../../../restaurant.model';
+import {RestuarantsService} from '../../../../services/restuarants.service';
 
 @Component({
   selector: 'app-menu-item',
@@ -7,15 +8,15 @@ import {Menu} from '../../../../restaurant.model';
   styleUrls: ['./menu-item.component.scss']
 })
 export class MenuItemComponent implements OnInit {
-  @Input() item: Menu;
+  @Input() dish: Menu;
 
-  constructor() {
+  constructor(private service: RestuarantsService) {
   }
 
   ngOnInit(): void {
   }
 
-  onAddItem(amount: string): void {
-    alert(amount);
+  onAddDish(amount: string): void {
+    this.service.addingDish(+amount, this.dish);
   }
 }

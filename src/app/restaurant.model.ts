@@ -23,4 +23,7 @@ export interface Opinion {
   star: number;
 }
 
-
+export interface SelectedDish {
+  dish: Menu;
+  amount: number;
+}

@@ -10,12 +10,14 @@ a {
     margin: 0;
   }
 
-  a.active {
+  &.active {
     color: $secondary-color !important;
     font-weight: bold;
   }
 
-  a:hover {
+
+  &:hover {
     color: $secondary-color;
   }
 }
+

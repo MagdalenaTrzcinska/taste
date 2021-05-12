@@ -5,6 +5,7 @@ import {RestaurantsComponent} from './components/restaurants/restaurants.compone
 import {NotFoundComponent} from './components/not-found/not-found.component';
 import {RestuarantInfoComponent} from './components/restaurants/restuarant-info/restuarant-info.component';
 import {NoSelectedRestaurantComponent} from './components/restaurants/no-selected-restaurant/no-selected-restaurant.component';
+import {PanelComponent} from './components/panel/panel.component';
 
 const routes: Routes = [
   {path: '', component: MainPageComponent},
@@ -12,6 +13,7 @@ const routes: Routes = [
       {path: '', component: NoSelectedRestaurantComponent, pathMatch: 'full'},
       {path: ':name', component: RestuarantInfoComponent},
     ]},
+  {path: 'panel', component: PanelComponent},
   {path: '**', redirectTo: 'not-found'},
   {path: 'not-found', component: NotFoundComponent},
 ];

@@ -19,7 +19,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import { PanelComponent } from './components/main-page/panel/panel.component';
+import { PanelComponent } from './components/panel/panel.component';
+import { LoginToPanelComponent } from './components/main-page/login-to-panel/login-to-panel.component';
+import { AddOpinionComponent } from './components/restaurants/restuarant-info/add-opinion/add-opinion.component';
 
 
 
@@ -35,6 +37,8 @@ import { PanelComponent } from './components/main-page/panel/panel.component';
     NoSelectedRestaurantComponent,
     OpinionItemComponent,
     PanelComponent,
+    LoginToPanelComponent,
+    AddOpinionComponent,
   ],
   imports: [
     BrowserModule,

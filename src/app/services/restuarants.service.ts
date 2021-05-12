@@ -1,8 +1,8 @@
 import {Injectable, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {map} from 'rxjs/operators';
-import {Restaurant} from '../restaurant.model';
-import {Subject} from 'rxjs';
+import {catchError, map} from 'rxjs/operators';
+import {Menu, Opinion, Restaurant, SelectedDish} from '../restaurant.model';
+import {Observable, Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +10,7 @@ import {Subject} from 'rxjs';
 export class RestuarantsService {
   restaurants: Restaurant[];
   filteredRestaurants: Restaurant[] = [];
+  selectedDishes: SelectedDish[] = [];
 
   login = false;
   error = false;
@@ -27,7 +28,7 @@ export class RestuarantsService {
   }
 
   getting(): void {
-    this.http.get<{ [name: string]: Restaurant }>('https://restaurants-668f1-default-rtdb.firebaseio.com/restuarants.json')
+    this.http.get<{ Restaurant }>('https://restaurants-668f1-default-rtdb.firebaseio.com/restuarants.json')
       .pipe(
         map(responseData => {
           const pastArray: Restaurant[] = [];
@@ -48,5 +49,17 @@ export class RestuarantsService {
   openingLogin(): void {
     this.login = !this.login;
     this.error = false;
+  }
+
+  addingDish(amount: number, dish: Menu): void {
+    const d = {dish, amount};
+    this.selectedDishes.push(d);
+
+    console.log(this.selectedDishes);
+  }
+
+  addingOpinion(opinion: Opinion, name: string, lengthOfOpinion: number): Observable<Opinion> {
+    return this.http.put<Opinion>('https://restaurants-668f1-default-rtdb.firebaseio.com/restuarants/' + name + '/opinions/' + lengthOfOpinion + '.json',
+      opinion);
   }
 }

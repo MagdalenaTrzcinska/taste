@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {RestuarantsService} from '../../../services/restuarants.service';
+import {RestuarantsService} from '../../services/restuarants.service';
 
 @Component({
   selector: 'app-panel',
