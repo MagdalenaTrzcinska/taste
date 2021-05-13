@@ -1,14 +1,15 @@
 <div class="row">
   <div class="col-12">
-    <ul class="nav nav-tabs pl-3 pr-3">
+    <ul class="nav nav-tabs px-3">
       <li class="nav-item">
         <a class="nav-link" href="#"><h2>TASTE</h2></a>
       </li>
       <li class="nav-item align-self-end" *ngFor="let item of restaurants">
         <a class="nav-link" routerLink="{{item.name}}" routerLinkActive="active">{{item.name | nameChange}}</a>
       </li>
-      <li class="align-self-end ml-auto mb-2">
-        <a href="#"><i class="fas fa-shopping-basket"></i></a>
+      <li class="align-self-end ml-auto mb-2 position-relative">
+        <a routerLink="/order"><i class="fas fa-shopping-basket"></i></a>
+        <span class="badge" *ngIf="service.selectedDishes.length > 0">{{service.selectedDishes.length}}</span>
       </li>
     </ul>
   </div>

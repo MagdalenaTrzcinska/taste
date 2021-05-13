@@ -10,6 +10,7 @@ import {Observable, Subject} from 'rxjs';
 export class RestuarantsService {
   restaurants: Restaurant[];
   filteredRestaurants: Restaurant[] = [];
+
   selectedDishes: SelectedDish[] = [];
 
   login = false;
@@ -53,12 +54,16 @@ export class RestuarantsService {
 
   addingDish(amount: number, dish: Menu): void {
     const d = {dish, amount};
-    this.selectedDishes.push(d);
-
-    console.log(this.selectedDishes);
+    const id = this.selectedDishes.findIndex(x => x.dish === dish);
+    if (id !== -1) {
+      this.selectedDishes[id].amount++;
+    } else {
+      this.selectedDishes.push(d);
+    }
   }
 
   addingOpinion(opinion: Opinion, name: string, lengthOfOpinion: number): Observable<Opinion> {
+    // tslint:disable-next-line:max-line-length
     return this.http.put<Opinion>('https://restaurants-668f1-default-rtdb.firebaseio.com/restuarants/' + name + '/opinions/' + lengthOfOpinion + '.json',
       opinion);
   }

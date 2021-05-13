@@ -6,6 +6,7 @@ import {NotFoundComponent} from './components/not-found/not-found.component';
 import {RestuarantInfoComponent} from './components/restaurants/restuarant-info/restuarant-info.component';
 import {NoSelectedRestaurantComponent} from './components/restaurants/no-selected-restaurant/no-selected-restaurant.component';
 import {PanelComponent} from './components/panel/panel.component';
+import {OrderComponent} from './components/order/order.component';
 
 const routes: Routes = [
   {path: '', component: MainPageComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
       {path: ':name', component: RestuarantInfoComponent},
     ]},
   {path: 'panel', component: PanelComponent},
+  {path: 'order', component: OrderComponent},
   {path: '**', redirectTo: 'not-found'},
   {path: 'not-found', component: NotFoundComponent},
 ];

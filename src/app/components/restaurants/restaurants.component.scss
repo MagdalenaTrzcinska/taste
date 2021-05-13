@@ -21,3 +21,11 @@ a {
   }
 }
 
+.badge {
+  background-color: $secondary-color;
+  color: white;
+  border-radius: 50%;
+  position: absolute;
+  right: -5px;
+  top:-5px;
+}

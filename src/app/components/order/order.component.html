@@ -1,0 +1,29 @@
+<div *ngIf="selectedDishes.length != 0; else noDish" class="row p-4 justify-content-center justify-content-xl-start">
+  <div class="col-12">
+    <div class="position-relative">
+      <span class="name">Your dishes</span>
+      <h1>Order</h1>
+    </div>
+  </div>
+
+  <div class="col-12 col-lg-8 col-xl-3 me-xl-5">
+    <div class="row align-items-center p-2 mb-2 border" *ngFor="let dish of selectedDishes">
+      <div class="col-6">
+        <h6>{{dish.dish.name | uppercase}}</h6>
+        <div>{{dish.dish.description}}</div>
+        <hr/>
+        <span>amount: {{dish.amount}}</span>
+        <span class="float-right">price: {{total(dish)}} &euro;</span>
+      </div>
+      <div class="col-6 ml-auto">
+        <img [src]="dish.dish.imagePath" class="img-fluid" style="max-height: 200px;">
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8 col-lg-7 col-xl-5 offset-xl-2">
+    <app-order-form></app-order-form>
+  </div>
+</div>
+<ng-template #noDish>
+  You haven't booked hotels.
+</ng-template>

@@ -12,7 +12,7 @@ export class RestaurantsComponent implements OnInit {
   restaurants: Restaurant[];
   login = false;
 
-  constructor(private service: RestuarantsService) {
+  constructor(public service: RestuarantsService) {
     this.restaurants = this.service.filteredRestaurants;
   }
 

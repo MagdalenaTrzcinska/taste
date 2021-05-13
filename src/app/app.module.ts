@@ -21,7 +21,9 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { PanelComponent } from './components/panel/panel.component';
 import { LoginToPanelComponent } from './components/main-page/login-to-panel/login-to-panel.component';
-import { AddOpinionComponent } from './components/restaurants/restuarant-info/add-opinion/add-opinion.component';
+import { OrderComponent } from './components/order/order.component';
+import { OrderFormComponent } from './components/order/order-form/order-form.component';
+import {FormsModule} from '@angular/forms';
 
 
 
@@ -38,7 +40,8 @@ import { AddOpinionComponent } from './components/restaurants/restuarant-info/ad
     OpinionItemComponent,
     PanelComponent,
     LoginToPanelComponent,
-    AddOpinionComponent,
+    OrderComponent,
+    OrderFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,8 @@ import { AddOpinionComponent } from './components/restaurants/restuarant-info/ad
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    FormsModule
   ],
   providers: [MatSnackBar],
   bootstrap: [AppComponent]
