@@ -1,0 +1,15 @@
+<div class="opinion card" *ngIf="restaurant.opinions.length > 0; else noOpinions">
+  <div class="card-header">
+    <div><span>{{ calcStar() }}</span>/5 stars</div>
+    <div><span>{{ lengthOfOpinion() }}</span> opinion</div>
+  </div>
+  <div class="card" *ngFor="let opinion of restaurant.opinions">
+    <app-opinion-item [opinion]="opinion" *ngIf="opinion"></app-opinion-item>
+  </div>
+</div>
+<ng-template #noOpinions>
+  <div class="card-header">
+    This restaurant does not have any reviews.
+  </div>
+</ng-template>
+<app-add-opinion [restaurant]="restaurant"></app-add-opinion>

@@ -1,0 +1,15 @@
+@import "src/app/styles/variables";
+
+i {
+  padding-left: 10px;
+  color: $secondary-color;
+  cursor: pointer;
+
+  &:hover {
+    color: darken($secondary-color, 10%);
+  }
+}
+
+input.ng-invalid.ng-touched:not(:focus) {
+  border: 1px solid red;
+}

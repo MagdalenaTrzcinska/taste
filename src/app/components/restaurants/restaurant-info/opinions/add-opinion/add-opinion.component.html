@@ -1,0 +1,11 @@
+<div class="card-header text-center" (click)="addOpinion = !addOpinion" style="cursor:pointer; border-radius: 5px">
+  <i class="fas fa-plus-circle"></i>
+</div>
+
+<div class="card" *ngIf="addOpinion" [@show]>
+  <div class="input-group mt-3 mb-3 col-7 align-self-center">
+    <input type="number" class="form-control col-4 mr-2" max="5" min="1" placeholder="Star" #star>
+    <input type="text" class="form-control mr-2" placeholder="Opinion" #opinion>
+    <button class="btn" (click)="onAddOpinion(+star.value, opinion.value)">Add</button>
+  </div>
+</div>
