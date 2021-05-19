@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Opinion} from '../../../../restaurant.model';
+import {Opinion} from '../../../../../restaurant.model';
 
 @Component({
   selector: 'app-opinion-item',

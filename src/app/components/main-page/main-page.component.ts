@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {RestuarantsService} from '../../services/restuarants.service';
+import {RestaurantsService} from '../../services/restaurants.service';
+
 
 @Component({
   selector: 'app-main-page',
@@ -9,18 +10,18 @@ import {RestuarantsService} from '../../services/restuarants.service';
 })
 export class MainPageComponent implements OnInit {
 
-  constructor(private route: Router, public service: RestuarantsService) {
+  constructor(private route: Router, public service: RestaurantsService) {
   }
 
   ngOnInit(): void {
   }
 
-  onOpenLogin(): void {
-    this.service.openingLogin();
+  onOpenTheLoginForm(): void {
+    this.service.openingTheLoginForm();
   }
 
-  onSearch(city): void {
-    this.service.searchHotels(city);
+  onRestaurantSearch(city): void {
+    this.service.searchingRestaurants(city);
     this.route.navigate(['restaurants']);
   }
 }

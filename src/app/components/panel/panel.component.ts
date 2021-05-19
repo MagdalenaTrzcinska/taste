@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {RestuarantsService} from '../../services/restuarants.service';
+import {RestaurantsService} from '../../services/restaurants.service';
+import {Restaurant} from '../../restaurant.model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-panel',
@@ -7,22 +9,11 @@ import {RestuarantsService} from '../../services/restuarants.service';
   styleUrls: ['./panel.component.scss']
 })
 export class PanelComponent implements OnInit {
-  correctPassword = 'admin1234';
+  restaurants: Restaurant[];
 
-  constructor(public service: RestuarantsService) { }
+  constructor(public service: RestaurantsService, public router: Router) { }
 
   ngOnInit(): void {
-  }
-
-  onLogin(password: string): void {
-    if (password === this.correctPassword) {
-      alert('good');
-    } else {
-      this.service.error = true;
-    }
-  }
-
-  changeLogin(): void {
-    this.service.openingLogin();
+    this.restaurants = this.service.restaurants;
   }
 }

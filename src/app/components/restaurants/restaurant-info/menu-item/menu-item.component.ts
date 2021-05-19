@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Menu} from '../../../../restaurant.model';
-import {RestuarantsService} from '../../../../services/restuarants.service';
+import {RestaurantsService} from '../../../../services/restaurants.service';
 
 @Component({
   selector: 'app-menu-item',
@@ -10,7 +10,7 @@ import {RestuarantsService} from '../../../../services/restuarants.service';
 export class MenuItemComponent implements OnInit {
   @Input() dish: Menu;
 
-  constructor(private service: RestuarantsService) {
+  constructor(private service: RestaurantsService) {
   }
 
   ngOnInit(): void {

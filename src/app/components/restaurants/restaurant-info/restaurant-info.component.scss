@@ -19,12 +19,3 @@ h1 {
     color: $secondary-color;
   }
 }
-
-.card-header {
-  background-color: lighten($secondary-color, 10%);
-  color: white;
-
-  span {
-    padding: 0;
-  }
-}

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {RestuarantsService} from '../../services/restuarants.service';
+import {RestaurantsService} from '../../services/restaurants.service';
 import {SelectedDish} from '../../restaurant.model';
 
 @Component({
@@ -10,7 +10,7 @@ import {SelectedDish} from '../../restaurant.model';
 export class OrderComponent implements OnInit {
   selectedDishes: SelectedDish[] = [];
 
-  constructor(private service: RestuarantsService) {
+  constructor(private service: RestaurantsService) {
   }
 
   ngOnInit(): void {

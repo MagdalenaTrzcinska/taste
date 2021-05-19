@@ -1,12 +1,26 @@
 <div class="container-fluid p-2">
   <div class="row">
-    <div class="col-5">
+    <div class="col-9">
       <div class="position-relative">
         <span class="name">Panel</span>
         <h1>for an admin</h1>
       </div>
     </div>
-    <div class="col-2 ml-auto text-right"><button class="btn btn-small">Return</button></div>
+    <div class="col-2 ml-auto text-right">
+      <button class="btn btn-small" (click)="this.router.navigate([''])">Return</button>
+    </div>
   </div>
 </div>
-
+<div class="row">
+  <div class="col-12 col-xl-2">
+    <div class="list-group">
+      <a routerLink="add-restaurant" class="list-group-item list-group-item-action btn">Add Restaurant</a>
+      <a *ngFor="let restaurant of restaurants" routerLink="{{restaurant.name}}"
+         class="list-group-item list-group-item-action">{{restaurant.name}}
+        | {{restaurant.location}}</a>
+    </div>
+  </div>
+  <div class="col-12 col-xl-10">
+    <router-outlet></router-outlet>
+  </div>
+</div>

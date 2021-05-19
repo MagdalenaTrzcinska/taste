@@ -1,7 +1,7 @@
-import {Component, DoCheck, OnInit} from '@angular/core';
-import {RestuarantsService} from '../../services/restuarants.service';
+import {Component, OnInit} from '@angular/core';
+
 import {Restaurant} from '../../restaurant.model';
-import {Subscription} from 'rxjs';
+import {RestaurantsService} from '../../services/restaurants.service';
 
 @Component({
   selector: 'app-restaurants',
@@ -12,7 +12,7 @@ export class RestaurantsComponent implements OnInit {
   restaurants: Restaurant[];
   login = false;
 
-  constructor(public service: RestuarantsService) {
+  constructor(public service: RestaurantsService) {
     this.restaurants = this.service.filteredRestaurants;
   }
 

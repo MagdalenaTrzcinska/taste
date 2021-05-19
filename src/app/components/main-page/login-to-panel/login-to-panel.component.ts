@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {RestuarantsService} from '../../../services/restuarants.service';
+import {RestaurantsService} from '../../../services/restaurants.service';
 import {Router} from '@angular/router';
 
 @Component({
@@ -10,7 +10,7 @@ import {Router} from '@angular/router';
 export class LoginToPanelComponent implements OnInit {
   correctPassword = 'admin1234';
 
-  constructor(public service: RestuarantsService, private router: Router) {
+  constructor(public service: RestaurantsService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -19,12 +19,13 @@ export class LoginToPanelComponent implements OnInit {
   onLogin(password: string): void {
     if (password === this.correctPassword) {
       this.router.navigate(['panel']);
+      this.service.loggedIn = true;
     } else {
       this.service.error = true;
     }
   }
 
   changeLogin(): void {
-    this.service.openingLogin();
+    this.service.openingTheLoginForm();
   }
 }
