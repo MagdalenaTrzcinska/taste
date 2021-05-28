@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {Restaurant} from '../../../../../restaurant.model';
 
 import {animate, state, style, transition, trigger} from '@angular/animations';
@@ -29,9 +29,12 @@ import {RestaurantsService} from '../../../../../services/restaurants.service';
 })
 export class AddOpinionComponent implements OnInit {
   @Input() restaurant: Restaurant;
+  @ViewChild('star') starInput;
+  @ViewChild('opinion') opinionInput;
   addOpinion = false;
 
-  constructor(private service: RestaurantsService) { }
+  constructor(private service: RestaurantsService) {
+  }
 
   ngOnInit(): void {
   }
@@ -41,8 +44,9 @@ export class AddOpinionComponent implements OnInit {
     const name = this.restaurant.name;
 
     this.service.postingOpinion(opinion, name).subscribe(res => {
-      console.log(res);
-      this.restaurant.opinions.push(res);
+      this.restaurant.opinions.push(opinion);
+      this.starInput = '';
+      this.opinionInput = '';
     });
   }
 }

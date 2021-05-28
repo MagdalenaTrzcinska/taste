@@ -66,13 +66,12 @@ export class PanelRestaurantComponent implements OnInit {
     this.form.reset();
   }
 
-  onRemoveOpinion(opinion: Opinion): void {
+  onRemoveOpinion(opinion): void {
     if (confirm('Are you sure?')) {
       const nameOfRestaurant = this.restaurant.name;
-      const key = 'p';
 
-      this.service.removingOpinion(nameOfRestaurant, key).subscribe(x => {
-        const id = this.restaurant.opinions.findIndex(i => x.key === key);
+      this.service.removingOpinion(nameOfRestaurant, opinion.key).subscribe(x => {
+        const id = this.restaurant.opinions.findIndex(o => o === opinion);
         this.restaurant.opinions.splice(id, 1);
       });
     }

@@ -1,7 +1,7 @@
 <div class="card">
   <img src="{{dish.imagePath}}" class="card-img-top" alt="{{dish.name}}">
   <div class="card-body">
-    <h5 class="card-title">{{dish.name}}</h5>
+    <h5 class="card-title">{{dish.name | nameChange}}</h5>
     <p class="card-text" style="height: 80px">{{dish.description}}</p>
 
     <div class="row">

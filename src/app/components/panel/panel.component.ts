@@ -16,4 +16,8 @@ export class PanelComponent implements OnInit {
   ngOnInit(): void {
     this.restaurants = this.service.restaurants;
   }
+
+  onAddRestaurant() {
+
+  }
 }

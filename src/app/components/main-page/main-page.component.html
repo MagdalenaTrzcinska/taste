@@ -11,12 +11,10 @@
     <div class="col-8 col-md-7 col-lg-6 col-xl-5">
       <h3>Enter a city</h3>
       <div class="input-group mb-3">
-          <select class="form-control" #city>
-            <option>Warsaw</option>
-            <option>Gdansk</option>
-            <option>Poznan</option>
-            <option>Cracow</option>
-          </select>
+        <select class="form-control" #city>
+          <option>Warsaw</option>
+          <option>Cracow</option>
+        </select>
         <button class="btn btn-radius" type="button" (click)="onRestaurantSearch(city.value)">Search</button>
       </div>
     </div>

@@ -8,6 +8,8 @@ import {Observable, Subject} from 'rxjs';
   providedIn: 'root'
 })
 export class RestaurantsService {
+  URL = 'https://restaurants-668f1-default-rtdb.firebaseio.com/restuarants';
+
   restaurants: Restaurant[];
   filteredRestaurants: Restaurant[] = [];
   selectedDishes: SelectedDish[] = [];
@@ -34,7 +36,7 @@ export class RestaurantsService {
   }
 
   getting(): void {
-    this.http.get<{ Restaurant }>('https://restaurants-668f1-default-rtdb.firebaseio.com/restuarants.json')
+    this.http.get<{ Restaurant }>(`${this.URL}.json`)
       .pipe(
         map(responseData => {
           const pastArray: Restaurant[] = [];
@@ -63,10 +65,11 @@ export class RestaurantsService {
       )
       .subscribe(posts => {
         this.restaurants = posts;
+        console.log(posts);
       });
   }
 
-  addingDish(amount: number, dish: Menu): void {
+  addingADishToThrCart(amount: number, dish: Menu): void {
     const d = {dish, amount};
     const id = this.selectedDishes.findIndex(x => x.dish === dish);
     if (id !== -1) {
@@ -77,32 +80,29 @@ export class RestaurantsService {
   }
 
   postingOpinion(opinion: { star: number, description: string }, name: string): Observable<Opinion> {
-    // tslint:disable-next-line:max-line-length
-    return this.http.post<Opinion>('https://restaurants-668f1-default-rtdb.firebaseio.com/restuarants/' + name + '/opinions.json',
+    return this.http.post<Opinion>(`${this.URL}/'${name}'/opinions.json`,
       opinion);
   }
 
-  removingOpinion(name: string, id: string): Observable<any> {
-    return this.http.delete('https://restaurants-668f1-default-rtdb.firebaseio.com/restuarants/' + name + '/opinions/' + id + '.json');
+  removingOpinion(name: string, key: string): Observable<any> {
+    return this.http.delete(`${this.URL}/${name}/opinions/${key}.json`);
   }
 
   postingDish(menu: Menu, restaurant: string): Observable<Menu> {
     return this.http.put<Menu>
-    (`https://restaurants-668f1-default-rtdb.firebaseio.com/restuarants/${restaurant}/menu/${menu.name}.json`,
+    (`${this.URL}/${restaurant}/menu/${menu.name}.json`,
       menu);
   }
 
   removingDish(dish: string, restaurant: string): Observable<any> {
-    return this.http.delete('https://restaurants-668f1-default-rtdb.firebaseio.com/restuarants/' + restaurant + '/menu/' + dish + '.json');
+    return this.http.delete(`${this.URL}/${restaurant}/menu/${dish}.json`);
   }
 
   postingRestaurant(restaurant: Restaurant): Observable<any> {
-    return this.http.put('https://restaurants-668f1-default-rtdb.firebaseio.com/restuarants/' + restaurant.name + '.json', restaurant);
+    return this.http.put(`${this.URL}/${restaurant.name}.json`, restaurant);
   }
 
   removingRestaurant(restaurant: string): Observable<any> {
-    return this.http.delete('https://restaurants-668f1-default-rtdb.firebaseio.com/restuarants/' + restaurant + '.json');
+    return this.http.delete(`${this.URL}/restaurants/${restaurant}.json`);
   }
-
-
 }

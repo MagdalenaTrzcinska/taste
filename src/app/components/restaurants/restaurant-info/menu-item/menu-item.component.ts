@@ -17,6 +17,6 @@ export class MenuItemComponent implements OnInit {
   }
 
   onAddDish(amount: string): void {
-    this.service.addingDish(+amount, this.dish);
+    this.service.addingADishToThrCart(+amount, this.dish);
   }
 }

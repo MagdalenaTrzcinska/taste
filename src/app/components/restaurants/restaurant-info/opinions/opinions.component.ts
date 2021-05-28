@@ -16,10 +16,10 @@ export class OpinionsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  calcStar(): number {
+  calcStar(): string {
     const stars = this.restaurant.opinions.map(s => s.star);
     const result = stars.reduce((a, b) => a + b);
-    return result / stars.length;
+    return (result / stars.length).toFixed(2);
   }
 
   lengthOfOpinion(): number {
