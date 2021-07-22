@@ -28,6 +28,8 @@ import {PanelRestaurantComponent} from './components/panel/panel-restaurant/pane
 import {AddRestaurantComponent} from './components/panel/add-restaurant/add-restaurant.component';
 import {AddOpinionComponent} from './components/restaurants/restaurant-info/opinions/add-opinion/add-opinion.component';
 import {RestaurantInfoComponent} from './components/restaurants/restaurant-info/restaurant-info.component';
+import {CartStorage} from './services/cart.storage';
+
 
 @NgModule({
   declarations: [
@@ -62,7 +64,7 @@ import {RestaurantInfoComponent} from './components/restaurants/restaurant-info/
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [MatSnackBar],
+  providers: [MatSnackBar, OrderComponent, CartStorage],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Menu} from '../../../../restaurant.model';
-import {RestaurantsService} from '../../../../services/restaurants.service';
+import {Router} from '@angular/router';
+import {CartStorage} from '../../../../services/cart.storage';
 
 @Component({
   selector: 'app-menu-item',
@@ -10,13 +11,13 @@ import {RestaurantsService} from '../../../../services/restaurants.service';
 export class MenuItemComponent implements OnInit {
   @Input() dish: Menu;
 
-  constructor(private service: RestaurantsService) {
+  constructor(private cartStorage: CartStorage, public router: Router) {
   }
 
   ngOnInit(): void {
   }
 
   onAddDish(amount: string): void {
-    this.service.addingADishToThrCart(+amount, this.dish);
+    this.cartStorage.addingADishToThrCart(+amount, this.dish);
   }
 }

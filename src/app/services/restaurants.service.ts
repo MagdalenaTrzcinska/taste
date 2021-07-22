@@ -15,7 +15,6 @@ export class RestaurantsService {
   selectedDishes: SelectedDish[] = [];
 
   loggedIn = false;
-  showALoginForm = false;
   error = false;
 
   constructor(private http: HttpClient) {
@@ -23,6 +22,7 @@ export class RestaurantsService {
   }
 
   searchingRestaurants(city: string): void {
+    this.filteredRestaurants = [];
     for (const restaurant of this.restaurants) {
       if (restaurant.location === city) {
         this.filteredRestaurants.push(restaurant);
@@ -31,7 +31,6 @@ export class RestaurantsService {
   }
 
   openingTheLoginForm(): void {
-    this.showALoginForm = !this.showALoginForm;
     this.error = false;
   }
 
@@ -67,16 +66,6 @@ export class RestaurantsService {
         this.restaurants = posts;
         console.log(posts);
       });
-  }
-
-  addingADishToThrCart(amount: number, dish: Menu): void {
-    const d = {dish, amount};
-    const id = this.selectedDishes.findIndex(x => x.dish === dish);
-    if (id !== -1) {
-      this.selectedDishes[id].amount++;
-    } else {
-      this.selectedDishes.push(d);
-    }
   }
 
   postingOpinion(opinion: { star: number, description: string }, name: string): Observable<Opinion> {

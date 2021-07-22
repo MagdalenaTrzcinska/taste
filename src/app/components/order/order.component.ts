@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {RestaurantsService} from '../../services/restaurants.service';
 import {SelectedDish} from '../../restaurant.model';
+import {CartStorage} from '../../services/cart.storage';
 
 @Component({
   selector: 'app-order',
@@ -8,17 +8,19 @@ import {SelectedDish} from '../../restaurant.model';
   styleUrls: ['./order.component.scss']
 })
 export class OrderComponent implements OnInit {
-  selectedDishes: SelectedDish[] = [];
+  selectedDishes: SelectedDish[];
 
-  constructor(private service: RestaurantsService) {
+  constructor(private cartStorage: CartStorage) {
   }
 
   ngOnInit(): void {
-    this.selectedDishes = this.service.selectedDishes;
+    const cart = this.cartStorage.getDishes();
+    cart.subscribe((dishes: SelectedDish[]) => {
+      this.selectedDishes = dishes;
+    });
   }
 
   total(dish: SelectedDish): number {
     return dish.amount * dish.dish.price;
   }
-
 }

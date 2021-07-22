@@ -1,10 +1,20 @@
 <section>
-  <div class="row">
-    <div class="col-12">
+  <div class="row text-center justify-content-center">
+    <div class="col-12 col-xl-3">
       <div class="position-relative">
         <span class="name">No selected</span>
         <h1>Choose the restaurant</h1>
       </div>
+    </div>
+  </div>
+
+  <div class="row text-center justify-content-center">
+    <div class="col-12 col-xl-3">
+      <ul class="list-group">
+        <a class="list-group-item" *ngFor="let restaurant of service.filteredRestaurants"
+           routerLink="{{restaurant.name}}">
+          {{restaurant.name | nameChange}}</a>
+      </ul>
     </div>
   </div>
 </section>
