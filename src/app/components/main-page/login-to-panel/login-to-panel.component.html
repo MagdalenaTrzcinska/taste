@@ -1,7 +1,7 @@
 <article>
   <div class="model">
     <div class="modal-dialog">
-      <div class="alert alert-danger" role="alert" *ngIf="service.error">
+      <div class="alert alert-danger" role="alert" *ngIf="error">
         Incorrect the password
       </div>
       <div class="modal-content">
@@ -15,7 +15,7 @@
           </label>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-small btn-radius" (click)="changeLogin()">Close</button>
+          <button type="button" class="btn btn-small btn-radius" (click)="onCloseForm()">Close</button>
           <button type="button" class="btn btn-small btn-radius" (click)="onLogin(password.value)">Login</button>
         </div>
       </div>

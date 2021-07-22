@@ -14,8 +14,7 @@ export class RestaurantsService {
   filteredRestaurants: Restaurant[] = [];
   selectedDishes: SelectedDish[] = [];
 
-  loggedIn = false;
-  error = false;
+  isLoggedIn = false;
 
   constructor(private http: HttpClient) {
     this.getting();
@@ -28,10 +27,6 @@ export class RestaurantsService {
         this.filteredRestaurants.push(restaurant);
       }
     }
-  }
-
-  openingTheLoginForm(): void {
-    this.error = false;
   }
 
   getting(): void {

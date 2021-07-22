@@ -64,7 +64,7 @@ import {CartStorage} from './services/cart.storage';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [MatSnackBar, OrderComponent, CartStorage],
+  providers: [MatSnackBar, CartStorage],
   bootstrap: [AppComponent]
 })
 export class AppModule {

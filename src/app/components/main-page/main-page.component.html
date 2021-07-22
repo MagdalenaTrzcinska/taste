@@ -20,4 +20,5 @@
     </div>
   </div>
 </header>
-<app-login-to-panel *ngIf="service.showALoginForm"></app-login-to-panel>
+
+<app-login-to-panel *ngIf="showALoginForm" (isVisibleLoginForm)="onCloseTheLoginForm()" [error]="error"></app-login-to-panel>

@@ -7,7 +7,7 @@ import {RestaurantsService} from '../services/restaurants.service';
   providedIn: 'root'
 })
 export class LoginToPanelGuard implements CanActivate {
-  constructor(private service: RestaurantsService, private router: Router) {
+  constructor(private router: Router, private service: RestaurantsService) {
   }
 
   canActivate(
@@ -26,7 +26,7 @@ export class LoginToPanelGuard implements CanActivate {
   isAuthenticated(): Promise<any> {
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve(this.service.loggedIn);
+        resolve(this.service.isLoggedIn);
       }, 500);
     });
   }

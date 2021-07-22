@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {RestaurantsService} from '../../../services/restaurants.service';
 import {Router} from '@angular/router';
 
@@ -10,6 +10,10 @@ import {Router} from '@angular/router';
 export class LoginToPanelComponent implements OnInit {
   correctPassword = 'admin1234';
 
+  @Output() isVisibleLoginForm = new EventEmitter<boolean>();
+  @Input() error;
+  loggedIn = false;
+
   constructor(public service: RestaurantsService, private router: Router) {
   }
 
@@ -19,13 +23,13 @@ export class LoginToPanelComponent implements OnInit {
   onLogin(password: string): void {
     if (password === this.correctPassword) {
       this.router.navigate(['panel']);
-      this.service.loggedIn = true;
+      this.service.isLoggedIn = true;
     } else {
-      this.service.error = true;
+      this.error = true;
     }
   }
 
-  changeLogin(): void {
-    this.service.openingTheLoginForm();
+  onCloseForm(): void {
+    this.isVisibleLoginForm.emit(false);
   }
 }
